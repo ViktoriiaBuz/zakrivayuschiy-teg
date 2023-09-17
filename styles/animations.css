@@ -13,6 +13,8 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 
+/*стрелочка в хедере*/
+
 @keyframes arrow {
   0% {
     left: -20px;
@@ -27,4 +29,89 @@
 
 .theme-menu__button:disabled::before {
   animation: arrow 1s ease-in-out infinite;
+}
+
+/*лайк ховер*/
+
+.card__icon-button:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.card__icon-button .main-body {
+  fill: var(--bg-color);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button .core {
+  fill: var(--bg-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+/*лайк актив*/
+
+.card__icon-button:active .core {
+  fill: var(--heart-accent);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--heart-accent);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*клик по иконке*/
+
+.like-icon.is-liked .core {
+  fill: var(--heart-accent);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-accent);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-accent);
+  transition: fill 0.3s 0.06s linear;
+}
+
+@keyframes heart {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.5;
+  }
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: heart 0.3s 0.1s ease-in;
+}
+
+@keyframes sparks {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s 0.3s ease-in;
+}
+
+.like-icon .contour {
+  fill: var(--accent-color);
+  transition: fill 0.1s linear;
 }

@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 102px 0 102px 0;
+  padding-block-start: 102px;
 }
 
 .header {
@@ -39,7 +39,7 @@
   font-family: var(--accent-font-family);
   font-weight: var(--normal-font-weight);
   padding-block-start: clamp(8.5rem, 8.8333rem + -1.4815vw, 7.5rem);
-  padding-block-end: 25px;
+  padding-block-end: 28px;
   width: clamp(371px, 50%, 696px);
   margin-block-end: 102px;
 }
@@ -74,6 +74,7 @@
   width: 16px;
   height: 13px;
   left: -20px;
+  top: 4px;
 }
 
 .theme-menu__button {
@@ -95,7 +96,7 @@
 .theme-menu__button:focus-visible {
   outline: none;
   opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease; /*кнопка прыгает из-за transition*/
 }
 
 .theme-menu__button::after {
@@ -122,10 +123,13 @@
   pointer-events: none;
 }
 
+.content {
+  width: clamp(371px, 50%, 696px);
+}
+
 .section {
   margin-inline-start: auto;
   margin-inline-end: auto;
-  width: clamp(371px, 50%, 696px);
   font-size: 18px;
   background-color: var(--bg-color);
   border: 2px solid var(--accent-color);
@@ -164,24 +168,49 @@
 }
 
 .card__icon-button {
-  margin-inline-end: 12px;
+  margin-inline-end: 6px;
 }
 
 .card__icon-button:focus {
   outline: none;
 }
 
-.card__icon-button:focus {
-  outline: 2px solid var(--accent-color); /*неровно относительно кнопки + плавность*/
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color); /*неровно относительно кнопки*/
+  transition: outline 0.3s ease;
 }
 
 .card__like-button {
+  text-align: center;
+  width: 127px;
   padding: 7px 34px;
   border: 2px solid var(--accent-color);
 }
 
-.card__like-button:hover {
+.button-animation {
+  position: relative;
+}
 
+.button-animation:hover {
+  color: var(--bg-color);
+  transition: color 1s ease;
+}
+
+.button-animation::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.button-animation:hover::after {
+  transform: scaleX(1);
 }
 
 .card__like-button:focus {
@@ -189,27 +218,34 @@
 }
 
 .card__like-button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color); /*добавить плавсноть для box-shadow*/
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
 }
 
 .button__text {
+  position: relative;
+  z-index: 1;
   font-family: var(--accent-font-family);
   font-size: 14px;
   font-weight: var(--normal-font-weight);
 }
 
-.footer__svg {
-  margin-inline-end: 8px;
+.sparks {
+  opacity: 0;
+}
+
+.footer {
+  margin-block-end: 102px;
 }
 
 .footer__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--bg-color);
   padding: 14px 20px;
   border: 2px solid var(--accent-color);
-}
-
-.footer__button:hover {
-
+  color: var(--accent-color); /*не работает, цвет дискету на тёмной теме не видно*/
 }
 
 .footer__button:focus {
@@ -217,7 +253,17 @@
 }
 
 .footer__button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color); /*добавить плавсноть для box-shadow*/
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.footer__svg {
+  fill: currentColor; /*не работает, цвет дискету на тёмной теме не видно. НО дискету видно на тёмной теме на ховере?!*/
+  margin-inline-end: 8px;
+  position: relative;
+  width: 21px;
+  height: 21px;
+  z-index: 1;
 }
 
 @media (width <= 375px) {
@@ -225,7 +271,19 @@
     width: 100%;
   }
 
-  .section {
+  .content {
     width: 100%;
+  }
+
+  .footer__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer__svg {
+    width: 28px;
+    height: 28px;
   }
 }
