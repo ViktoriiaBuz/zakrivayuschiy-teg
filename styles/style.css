@@ -18,10 +18,10 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
 
-  font-family: var(--main-font-family), sans-serif;
-  font-variation-settings: "wght" var(--normal-font-weight);
-  background-color: var(--bg-color);
-  color: var(--accent-color);
+  font-family: var(--main-font-family, "Inter", sans-serif);
+  font-variation-settings: "wght" var(--normal-font-weight, 465);
+  background-color: var(--bg-color, #FFFFFF);
+  color: var(--accent-color, #000000);
   background-image: var(--bg-image);
   background-attachment: fixed;
   background-repeat: repeat;
@@ -34,10 +34,10 @@
 
 .header {
   text-transform: uppercase;
-  background-color: var(--bg-color);
-  border: 2px solid var(--accent-color);
-  font-family: var(--accent-font-family);
-  font-weight: var(--normal-font-weight);
+  background-color: var(--bg-color, #FFFFFF);
+  border: 2px solid var(--accent-color, #000000);
+  font-family: var(--accent-font-family, "PressStart2P", fantasy);
+  font-weight: var(--normal-font-weight, 400);
   padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
   padding-block-end: 28px;
   width: clamp(371px, 50%, 696px);
@@ -96,7 +96,7 @@
 .theme-menu__button:focus-visible {
   outline: none;
   opacity: 0.6;
-  transition: opacity 0.3s ease; /*кнопка прыгает из-за transition*/
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button::after {
@@ -106,7 +106,7 @@
   bottom: -5px;
   width: 100%;
   height: 2px;
-  background-color: var(--accent-color);
+  background-color: var(--accent-color, #000000);
   opacity: 0.6;
   transition: transform 0.3s ease;
   transform-origin: left center;
@@ -127,37 +127,37 @@
   width: clamp(371px, 50%, 696px);
 }
 
-.section {
+.content__section {
   margin-inline-start: auto;
   margin-inline-end: auto;
   font-size: 18px;
-  background-color: var(--bg-color);
-  border: 2px solid var(--accent-color);
+  background-color: var(--bg-color, #FFFFFF);
+  border: 2px solid var(--accent-color, #000000);
   margin-block-end: 51px;
 }
 
-.section__title {
-  font-weight: var(--bold-font-weight);
+.card__title {
+  font-variation-settings: "wght" var(--bold-font-weight, 700);
   font-size: 18px;
   padding: 4px 10px;
 }
 
-.section__image {
+.card__image {
   width: 100%;
-  border-block: 2px solid var(--accent-color);
+  border-block: 2px solid var(--accent-color, #000000);
 }
 
-.section__card {
-  font-weight: var(--normal-font-weight);
+.card__content {
+  font-weight: var(--normal-font-weight, 400);
   padding: 25px;
 }
 
-.section__description {
+.card__description {
   font-size: 18px;
   line-height: 21px;
 }
 
-.section__description:not(:last-child) {
+.card__description:not(:last-child) {
   margin-block-end: 27px;
 }
 
@@ -180,7 +180,7 @@
 }
 
 .card__icon-button:focus-visible {
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--accent-color, #000000);
   transition: outline 0.3s ease;
 }
 
@@ -188,7 +188,7 @@
   text-align: center;
   width: 127px;
   padding: 7px 0;
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--accent-color, #000000);
 }
 
 .button-animation {
@@ -196,7 +196,7 @@
 }
 
 .button-animation:hover {
-  color: var(--bg-color);
+  color: var(--bg-color, #FFFFFF);
   transition: color 1s ease;
 }
 
@@ -207,7 +207,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--accent-color);
+  background-color: var(--accent-color, #000000);
   transition: transform 0.5s ease-in-out;
   transform-origin: left center;
   transform: scaleX(0);
@@ -222,16 +222,16 @@
 }
 
 .card__like-button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
+  box-shadow: 2px 2px 0 var(--accent-color, #000000);
   transition: box-shadow 0.3s ease;
 }
 
 .button__text {
   position: relative;
   z-index: 1;
-  font-family: var(--accent-font-family);
+  font-family: var(--accent-font-family, "PressStart2P", fantasy);
   font-size: 14px;
-  font-weight: var(--normal-font-weight);
+  font-weight: var(--normal-font-weight, 400);
 }
 
 .sparks {
@@ -246,10 +246,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color, #FFFFFF);
   padding: 14px 20px;
-  border: 2px solid var(--accent-color);
-  color: var(--accent-color); /*не работает, цвет дискету на тёмной теме не видно*/
+  border: 2px solid var(--accent-color, #000000);
+  color: var(--accent-color, #000000);
 }
 
 .footer__button:focus {
@@ -257,12 +257,12 @@
 }
 
 .footer__button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
+  box-shadow: 2px 2px 0 var(--accent-color, #000000);
   transition: box-shadow 0.3s ease;
 }
 
 .footer__svg {
-  fill: currentColor; /*не работает, цвет дискету на тёмной теме не видно. НО дискету видно на тёмной теме на ховере?!*/
+  fill: currentColor;
   margin-inline-end: 8px;
   position: relative;
   width: 21px;
@@ -279,8 +279,8 @@
     width: 100%;
   }
 
-  .section__card {
-    padding: 21px 48px 25px 25px;
+  .card__content {
+    padding: 21px 25px 25px 25px;
   }
 
   .footer__button {
@@ -291,6 +291,7 @@
   }
 
   .footer__svg {
+    margin-inline-end: 0;
     width: 28px;
     height: 28px;
   }
