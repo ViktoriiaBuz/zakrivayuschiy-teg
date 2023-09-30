@@ -184,6 +184,8 @@
 .card__image-content {
   width: 100%;
   border-block: 2px solid var(--accent-color, #000000);
+  object-fit: cover;
+  object-position: center;
 }
 
 .card__image-label {
