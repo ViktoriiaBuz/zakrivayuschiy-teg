@@ -567,15 +567,14 @@
           </div>
         </article>
       </section>
-      <div class="footer">
         <button
-          class="footer__button button-animation"
+          class="save__button button-animation"
           type="button"
           onclick="window['dialog-id'].showModal()"
           aria-controls="dialog-id"
         >
           <svg
-            class="footer__svg"
+            class="save__svg"
             xmlns="http://www.w3.org/2000/svg"
             width="21"
             height="21"
@@ -585,27 +584,26 @@
           </svg>
           <span class="button__text">Сохранить на&nbsp;память</span>
         </button>
-      </div>
+      <dialog id="dialog-id">
+        <form method="dialog" class="dialog">
+          <div class="dialog__content">
+            <svg
+              class="save__svg"
+              xmlns="http://www.w3.org/2000/svg"
+              width="21"
+              height="21"
+              viewBox="0 0 21 21"
+            >
+              <use href="./svg/floppy.svg#floppy"></use>
+            </svg>
+            <p class="dialog__description">Вставьте дискету, чтобы продолжить</p>
+          </div>
+          <button class="dialog__button button-animation">
+            <span class="button__text">ок</span>
+          </button>
+        </form>
+      </dialog>
     </main>
-    <dialog id="dialog-id">
-      <form method="dialog" class="dialog">
-        <div class="dialog__content">
-          <svg
-            class="footer__svg"
-            xmlns="http://www.w3.org/2000/svg"
-            width="21"
-            height="21"
-            viewBox="0 0 21 21"
-          >
-            <use href="./svg/floppy.svg#floppy"></use>
-          </svg>
-          <p class="dialog__description">Вставьте дискету, чтобы продолжить</p>
-        </div>
-        <button type="button" class="dialog__button button-animation">
-          <span class="button__text">ок</span>
-        </button>
-      </form>
-    </dialog>
     <script src="./scripts/set-theme.js"></script>
     <script src="./scripts/like.js"></script>
   </body>

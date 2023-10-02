@@ -201,7 +201,7 @@
   mix-blend-mode: hard-light;
 }
 
-@supports ((text-stroke: 1px var(--shadow-color)) or (-webkit-text-stroke: 1px var(--shadow-color))) { /*КАК УЗНАТЬ ШИРИНУ ОБВОДКИ???*/
+@supports ((text-stroke: 1px var(--shadow-color)) or (-webkit-text-stroke: 1px var(--shadow-color))) {
   .card__image-label {
     -webkit-text-stroke: 1px var(--shadow-color, #FFFFFF);
     text-stroke: 1px var(--shadow-color, #FFFFFF);
@@ -304,13 +304,7 @@
   opacity: 0;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  margin-block-end: 102px;
-}
-
-.footer__button {
+.save__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -318,18 +312,21 @@
   padding: 14px 20px;
   border: 2px solid var(--accent-color, #000000);
   color: var(--difference-color, #ffffff);
+  margin-block-end: 102px;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 
-.footer__button:focus {
+.save__button:focus {
   outline: none;
 }
 
-.footer__button:focus-visible {
+.save__button:focus-visible {
   box-shadow: 2px 2px 0 var(--accent-color, #000000);
   transition: box-shadow 0.3s ease;
 }
 
-.footer__svg {
+.save__svg {
   fill: currentColor;
   margin-inline-end: 8px;
   position: relative;
@@ -376,7 +373,7 @@
   flex-shrink: 0;
 }
 
-.dialog .footer__svg {
+.dialog .save__svg {
   margin: 0;
 }
 
@@ -418,14 +415,14 @@
     padding: 21px 25px 25px 25px;
   }
 
-  .footer__button {
+  .save__button {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
   }
 
-  .footer__svg {
+  .save__svg {
     margin-inline-end: 0;
     width: 28px;
     height: 28px;
