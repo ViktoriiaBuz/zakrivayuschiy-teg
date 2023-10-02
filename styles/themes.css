@@ -4,3 +4,84 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+.theme-light {
+  --bg-color: #ffffff;
+  --accent-color: #000000;
+  --bold-font-weight: 700;
+  --normal-font-weight: 400;
+  --shadow-color: #FFFFFF;
+  --difference-color: #ffffff;
+  --difference-bg-color: #ffffff;
+  --repeating-gradient: #d3d3d3;
+  --top-gradient: #e7e7e7;
+  --bottom-gradient: #1a1a1a;
+  --bg-gradient: repeating-linear-gradient(
+      90deg,
+      var(--repeating-gradient) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(
+      var(--repeating-gradient) 0 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      var(--top-gradient),
+      var(--top-gradient) 0.01%,
+      var(--bottom-gradient)
+    );
+}
+
+.theme-dark {
+  --bg-color: #000000;
+  --accent-color: #00cc14;
+  --bold-font-weight: 785;
+  --normal-font-weight: 465;
+  --shadow-color: #000000;
+  --difference-color: #00cc14;
+  --difference-bg-color: #000000;
+  --repeating-gradient: #000;
+  --top-gradient: #007f0c;
+  --bottom-gradient: #004306;
+  --bg-gradient: repeating-linear-gradient(
+      90deg,
+      var(--repeating-gradient) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(
+      var(--repeating-gradient) 0 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      var(--top-gradient),
+      var(--bottom-gradient)
+    );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --accent-color: #00cc14;
+    --bold-font-weight: 785;
+    --normal-font-weight: 465;
+    --shadow-color: #000000;
+    --difference-color: #00cc14;
+    --difference-bg-color: #000000;
+    --repeating-gradient: #000;
+  --top-gradient: #007f0c;
+  --bottom-gradient: #004306;
+  --bg-gradient: repeating-linear-gradient(
+      90deg,
+      var(--repeating-gradient) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(
+      var(--repeating-gradient) 0 2px,
+      transparent 2px 4px
+    ),
+    linear-gradient(
+      var(--top-gradient),
+      var(--bottom-gradient)
+    );
+  }
+}
